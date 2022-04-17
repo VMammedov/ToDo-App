@@ -46,7 +46,9 @@ filterBtn.addEventListener('click', ()=> {
             todosC.innerHTML="";
             for (let index = 0; index < arrEl.length; index++) {
                 todosC.append(arrEl[index]);
-            }},500);
+            }todosC.append(createElementFromHTML(`<div class="todo-container" id="todo-cont">
+            <input class="todo-input" type="text" id="task-inpt"/>
+            </div>`)); document.getElementById("task-inpt").focus();},500);
             isAsc=false;
             filterBtn.classList.replace("bx-sort-up","bx-sort-down");
         }
@@ -61,7 +63,9 @@ filterBtn.addEventListener('click', ()=> {
             todosC.innerHTML="";
             for (let index = 0; index < arrEl.length; index++) {
                 todosC.append(arrEl[index]);
-            }},500);
+            }todosC.append(createElementFromHTML(`<div class="todo-container" id="todo-cont">
+            <input class="todo-input" type="text" id="task-inpt"/>
+            </div>`)); document.getElementById("task-inpt").focus();},500);
             isAsc=true;
             filterBtn.classList.replace("bx-sort-down","bx-sort-up");
         }
