@@ -15,6 +15,7 @@ function CreateTaskElement(taskText)
          <p class="todo-input">${taskText}</p>
          <i class='bx bxs-edit task-operation-btn' onclick="editEl(this.previousElementSibling)"></i>
          <i class='bx bx-x-circle task-operation-btn' onclick="deleteEl(this.parentElement)"></i>
+         <i class='bx bx-bookmark task-operation-btn' onclick="checkFavourite(this)"></i>
          </div>`);
     arrEl.push(elDiv);
     return elDiv;
@@ -71,7 +72,7 @@ filterBtn.addEventListener('click', ()=> {
         }
     }
     else{
-        error.innerText = "No tasks to filter!";
+        error.innerHTML = `<div class="d-flex align-items-center"><span>No tasks to filter!</span> <i class='bx bx-x-circle remove-error' onclick="removeErr()"></i></div>`;
         error.classList.toggle("active");
     }
 });
@@ -123,7 +124,7 @@ function addTask()
         inpt.value=""; inpt.focus();
     }
     else {
-        error.innerText = "Please, make sure that text field is filled!";
+        error.innerHTML = `<div class="d-flex align-items-center"><span>Please, make sure that text field is filled!</span> <i class='bx bx-x-circle remove-error' onclick="removeErr()"></i></div>`;
         error.classList.toggle("active");
     }
 }
@@ -151,3 +152,23 @@ function drop(e){
     document.getElementById("todos-cont").insertBefore(clone,document.getElementById("todos-cont").childNodes[dragindex]);
     }
 }
+
+function checkFavourite(element)
+{
+    if(element.classList.contains("bx-bookmark"))
+    {
+        element.classList.remove("bx-bookmark");
+        element.classList.add("bxs-bookmark");
+        element.style.color = "#833AE0";
+    }
+    else
+    {
+        element.classList.remove("bxs-bookmark");
+        element.classList.add("bx-bookmark");
+        element.style.color = "#C4C4C4";
+    }
+}
+
+error.addEventListener('click', ()=>{
+    error.classList.remove("active");
+})
