@@ -49,7 +49,7 @@ filterBtn.addEventListener('click', ()=> {
                 todosC.append(arrEl[index]);
             }todosC.append(createElementFromHTML(`<div class="todo-container" id="todo-cont">
             <input class="todo-input" type="text" id="task-inpt"/>
-            </div>`)); document.getElementById("task-inpt").focus();},500);
+            </div>`)); inpt = document.getElementById("task-inpt"); todoInpt = document.getElementById("todo-cont"); inpt.focus()},500);
             isAsc=false;
             filterBtn.classList.replace("bx-sort-up","bx-sort-down");
         }
@@ -66,7 +66,7 @@ filterBtn.addEventListener('click', ()=> {
                 todosC.append(arrEl[index]);
             }todosC.append(createElementFromHTML(`<div class="todo-container" id="todo-cont">
             <input class="todo-input" type="text" id="task-inpt"/>
-            </div>`)); document.getElementById("task-inpt").focus();},500);
+            </div>`)); inpt = document.getElementById("task-inpt"); todoInpt = document.getElementById("todo-cont"); inpt.focus()},500);
             isAsc=true;
             filterBtn.classList.replace("bx-sort-down","bx-sort-up");
         }
